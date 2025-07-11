@@ -1,6 +1,5 @@
 package utils;
 
-import util.CaptchaGenerator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -2,7 +2,7 @@ package app;
 
 import com.sun.net.httpserver.HttpServer;
 import handler.*;
-import util.SessionManager;
+import utils.SessionManager;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

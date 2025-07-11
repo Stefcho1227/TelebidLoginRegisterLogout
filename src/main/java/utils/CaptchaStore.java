@@ -1,4 +1,4 @@
-package util;
+package utils;
 
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
