@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Register</title>
+    <style>
+        body{font-family:sans-serif;max-width:320px;margin:3rem auto}
+        input{width:100%;padding:.5rem;margin:.4rem 0}
+        button{width:100%;padding:.6rem;font-weight:600}
+        .error{color:#c00}
+    </style>
+</head>
+<body>
+<h2>Create account</h2>
+
+<ul class="error">
+    {{errors}}
+    </ul>
+<form id="regForm" action="/register" method="post">
+    <input name="email"     type="email"    placeholder="Email"      required>
+    <input name="firstName" type="text"     placeholder="First name" required>
+    <input name="lastName"  type="text"     placeholder="Last name"  required>
+    <input name="password"  type="password" placeholder="Password"   required>
+
+    <img id="capImg" alt="captcha" style="display:block;margin:6px 0;">
+    <input name="captchaAnswer" placeholder="Enter text from image" required>
+    <input type="hidden" name="captchaId" id="capId">
+
+    <button>Register</button>
+</form>
+
+<p>Already have an account? <a href="/login.html">Login</a></p>
+
+<script>
+    (async () => {
+        const res = await fetch('/captcha');
+        const {id} = await res.json();
+        document.getElementById('capId').value = id;
+        document.getElementById('capImg').src  = '/captcha?id=' + id;
+    })();
+</script>
+</body>
+</html>
